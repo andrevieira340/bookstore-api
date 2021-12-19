@@ -5,18 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Livro implements Serializable{
 	private static final long serialVersionUID = 1L;
   
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer id;
   private String titulo;
   private String nomeAutor;
   private String texto;
@@ -28,18 +30,20 @@ public class Livro implements Serializable{
 	super();
 	// TODO Auto-generated constructor stub
   }
-  public Livro(int id, String titulo, String nomeAutor, String texto, Categoria categoria) {
+  
+	public Livro(Integer id, String titulo, String nomeAutor, String texto, Categoria categoria) {
 	super();
 	this.id = id;
 	this.titulo = titulo;
 	this.nomeAutor = nomeAutor;
 	this.texto = texto;
 	this.categoria = categoria;
-   }
-	public int getId() {
+}
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getTitulo() {
